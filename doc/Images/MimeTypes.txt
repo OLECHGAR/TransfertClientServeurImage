@@ -1,0 +1,6 @@
+image/jpeg
+image/png
+image/svg+xml
+image/x-ms-bmp
+image/x-portable-pixmap
+text/plain
