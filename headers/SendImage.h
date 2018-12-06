@@ -1,4 +1,4 @@
-#define PORT 4040
-#define MAX 100
-int client_socket();
-
+#include <stdio.h>
+int receive_image(int socket);
+int readchoix(int sock);
+void moveUpload();
