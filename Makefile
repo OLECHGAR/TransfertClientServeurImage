@@ -30,7 +30,7 @@ bin/MimeTypes.o : sources/MimeTypes.c headers/MimeTypes.h
 	$(CC) -o bin/MimeTypes.o sources/MimeTypes.c
 	
 	
-all :  bin/Liste.o  bin/LancerClient.o bin/Client.o bin/LancerServeur.o bin/Serveur.o bin/SendImage.o bin/ReadImage.o
+all :  bin/Liste.o  bin/LancerClient.o bin/Client.o bin/LancerServeur.o bin/Serveur.o bin/SendImage.o bin/ReadImage.o bin/MimeTypes.o 
 
 	gcc -o bin/LancerClient bin/LancerClient.o  bin/Client.o bin/SendImage.o bin/ReadImage.o bin/Liste.o
 	gcc -o bin/LancerServeur bin/LancerServeur.o  bin/Serveur.o bin/ReadImage.o bin/SendImage.o bin/Liste.o bin/MimeTypes.o 
