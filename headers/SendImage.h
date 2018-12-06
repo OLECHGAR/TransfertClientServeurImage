@@ -1,4 +1,5 @@
 #include <stdio.h>
-int receive_image(int socket);
-int readchoix(int sock);
-void moveUpload();
+void send_image(int socket, char* PATH);
+void sendchoix(int x , int sock);
+void afficher_image(char *PATH);
+void moveDownload();
