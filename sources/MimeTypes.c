@@ -40,7 +40,7 @@
 int MimeTypes()
 {
     int c;
-    FILE *sortie = popen("file --mime-type -b ../doc/Images/ImageTestes>fichier.txt", "r");
+    FILE *sortie = popen("file --mime-type -b ../doc/UploadImages/ImageTest>../doc/fichier.txt", "r");
     if(sortie == NULL)
     {
         perror("Erreur popen ");
@@ -50,21 +50,17 @@ int MimeTypes()
     
     while ((c = fgetc(sortie)) != EOF )
 		 putchar(c);
-   // c= getchar();
        
-    puts("");
    
     pclose(sortie);
     int res;
      char chaine[100];
-    FILE* fichier = fopen("fichier.txt","r");
+    FILE* fichier = fopen("../doc/fichier.txt","r");
     if (fichier!=NULL)                          
     fgets(chaine,80,fichier);
-    
     res=find("../doc/Images/MimeTypes.txt",chaine);
 return res ; 
 }
 
 // Retourne 1 si la chaine est trouve dans le
 // fichier specifie, sinon 0 
-
