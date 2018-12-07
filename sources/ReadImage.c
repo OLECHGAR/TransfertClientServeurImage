@@ -18,7 +18,7 @@ int readchoix(int sock)
 //This function is to be used once we have confirmed that an image is to be sent
 //It should read and output an image file
 
-int receive_image(int socket)
+int receive_image(int socket,int choix)
 { // Start function 
 
 int buffersize = 0, recv_size = 0,size = 0, read_size, write_size, packet_index =1,stat;
@@ -45,9 +45,10 @@ stat = write(socket, &buffer, sizeof(int));
 
 printf("Reply sent\n");
 printf(" \n");
-
-image = fopen("ImageTestes", "w");
-
+if(choix==1)
+image = fopen("../doc/DownloadImages/ImageTest", "w");
+if(choix==2)
+image = fopen("../doc/UploadImages/ImageTest", "w");
 if( image == NULL) {
 printf("Error has occurred. Image file could not be opened\n");
 return -1; }
@@ -109,12 +110,5 @@ while(recv_size < size) {
   return 1;
   }
 
-void moveUpload()
-{   
-	char* tab="mv ImageTestes ";
-	char rest[50]="../doc/UploadImages";
-	strcat(tab,rest);
-	printf("%s",tab);
-	system(tab);
-}
+
 

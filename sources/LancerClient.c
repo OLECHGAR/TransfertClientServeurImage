@@ -42,8 +42,8 @@ int main(void) {
 	printf("*********************************************************************\n");
 	printf("*********************************************************************\n");
 
-
-	label:printf("*******  Pour 'Download' tapez 1 , pour 'Upload' tapez 2 :  *********\n") ;
+while(1){
+	label: printf("*******  Pour 'Download' tapez 1 , pour 'Upload' tapez 2 :  *********\n") ;
 	scanf("%d",&x);
 	sendchoix( x , sock) ;
 	switch(x)
@@ -63,10 +63,10 @@ int main(void) {
         printf("le nom est : %s", nom);
         write(sock,nom,MAX);
 
-	      receive_image(sock);
-	      moveDownload();
-	      afficher_image("../doc/DownloadImages/ImagesTestes");
+	      receive_image(sock,1);
 
+	      afficher_image("../doc/DownloadImages/ImageTest");
+           goto label;
 	  break;  
 	  
 	case 2 : printf("****************************  Upload  *******************************\n");
@@ -74,15 +74,16 @@ int main(void) {
 	         scanf("%s",PATH);
 	         
 	         send_image(sock, PATH);
-            
+		strcpy(PATH,"");
+            goto label;
              break;
-             
-	default : printf("***********************  Nombre entré inconnu  **********************\n");goto label;
+             case 0 :     return EXIT_SUCCESS;
+	default : printf("***********************  Nombre entré inconnu  **********************\n");goto label;break;
 	
 	  }
 	  
+}
 
-    return EXIT_SUCCESS;
-
+return EXIT_SUCCESS;
 }
 

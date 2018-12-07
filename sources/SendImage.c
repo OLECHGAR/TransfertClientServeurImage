@@ -73,17 +73,11 @@ void sendchoix(int x , int sock)
 
 	
 void afficher_image(char* PATH) {
+
 	char chaine [50]= "eog ";
 	strcat(chaine,PATH);
 	system(chaine);
 }
-void moveDownload()
-{
-	char* tab="mv ImageTestes ";
-	char rest[50]="../doc/DownloadImages";
-	strcat(tab,rest);
-	printf("%s",tab);
-	system(tab);
-}
+
 
 

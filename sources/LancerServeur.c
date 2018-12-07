@@ -45,7 +45,7 @@ int main(void) {
 	  csock = accept(sock, (struct sockaddr*)&csin, &crecsize);
 	  int pid = fork();
 	  if(pid == 0){    
-      printf("********* Un client se connecte avec la socket %d de %s:%d **********\n  ",csock, inet_ntoa(csin.sin_addr), htons(csin.sin_port)); 
+      label:printf("********* Un client se connecte avec la socket %d de %s:%d **********\n  ",csock, inet_ntoa(csin.sin_addr), htons(csin.sin_port)); 
        x=readchoix(csock);
        switch(x)
        { case 1 : printf("****************************  Download  *****************************\n");
@@ -68,36 +68,37 @@ int main(void) {
 	     printf("le nom est: %s", nom);
 	     strcat(PATH,nom);
 	     send_image(csock,PATH);
-	     
+ 		strcpy(PATH,"");
+	     goto label;
 		   break;
 		   
 	     case 2 : printf("****************************  Upload  *******************************\n");
 
-	      receive_image(csock);
+	      receive_image(csock,2);
 	      int res;
-	      res= MimeTypes();
+	     /* res= MimeTypes();
 	      if(res==0)
 	      {
-	      	 unlink ("ImageTestes");
-		  }
-      else{	   
-	  
-	     moveUpload();
-
-          }
-          
+	      	 unlink ("../doc/UploadImages/ImageTestes");goto label;
+		  }*/
+              goto label;
+      
 	     break;
+             
+             case 0 :
+	  shutdown(csock,2);
+	  close(csock);
+	  close(sock);
+            printf("****************************  Good By  *******************************");
+          exit (0);   
+                 default : goto label;break ;
 		   
 		   }
 
-		
+	  return EXIT_SUCCESS;   	
 		  
 		   }
 		   }
 		  
-shutdown(csock,2);
-  close(csock);
-  close(sock);
 
-  return EXIT_SUCCESS;
 }
