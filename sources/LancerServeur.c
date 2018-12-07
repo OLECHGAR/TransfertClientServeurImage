@@ -83,7 +83,7 @@ int main(void) {
 	      	 unlink ("../doc/UploadImages/ImageTest");
 
 
-printf("************************ Incompatible file ***************************\n");
+printf("  ************************ Incompatible file ***************************\n");
 printf("Deleting the file .................\n");
 		  }
               goto label;
