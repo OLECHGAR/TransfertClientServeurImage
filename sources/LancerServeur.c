@@ -76,11 +76,16 @@ int main(void) {
 
 	      receive_image(csock,2);
 	      int res;
-	     /* res= MimeTypes();
-	      if(res==0)
+	      res= MimeTypes();
+
+	      if(res!=1)
 	      {
-	      	 unlink ("../doc/UploadImages/ImageTestes");goto label;
-		  }*/
+	      	 unlink ("../doc/UploadImages/ImageTest");
+
+
+printf("************************ Incompatible file ***************************\n");
+printf("Deleting the file .................\n");
+		  }
               goto label;
       
 	     break;
