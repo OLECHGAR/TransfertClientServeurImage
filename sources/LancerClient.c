@@ -44,7 +44,7 @@ int main(void) {
 
 while(1){
 	label: printf("********  Pour 'Download' tapez 1 , pour 'Upload' tapez 2   *********\n") ;
-	label: printf("********************* Pour 'Quiter' tapez 0 : ***********************\n") ;
+	 printf("********************* Pour 'Quiter' tapez 0 : ***********************\n") ;
 
 	scanf("%d",&x);
 	sendchoix( x , sock) ;
