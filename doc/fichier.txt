@@ -1,1 +1,1 @@
-inode/x-empty
+application/vnd.oasis.opendocument.text

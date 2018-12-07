@@ -64,3 +64,4 @@ return res ;
 
 // Retourne 1 si la chaine est trouve dans le
 // fichier specifie, sinon 0 
+

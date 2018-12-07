@@ -43,9 +43,8 @@ int main(void) {
 	printf("*********************************************************************\n");
 
 while(1){
-	label: printf("********  Pour 'Download' tapez 1 , pour 'Upload' tapez 2   *********\n") ;
-	 printf("********************* Pour 'Quiter' tapez 0 : ***********************\n") ;
-
+	label: printf("*******  Pour 'Download' tapez 1 , pour 'Upload' tapez 2 :  *********\n") ;
+               printf("************************ Pour Quiter 0 ******************************\n") ;
 	scanf("%d",&x);
 	sendchoix( x , sock) ;
 	switch(x)
@@ -74,12 +73,11 @@ while(1){
 	case 2 : printf("****************************  Upload  *******************************\n");
 	         printf("***************  Entrez le path de votre photo  ********************\n");
 	         scanf("%s",PATH);
-	         
 	         send_image(sock, PATH);
-		strcpy(PATH,"");
-            goto label;
-             break;
-             case 0 :     return EXIT_SUCCESS;
+		 strcpy(PATH,"");
+                 goto label;
+             
+             case 0 :     return 0;
 	default : printf("***********************  Nombre entré inconnu  **********************\n");goto label;break;
 	
 	  }
