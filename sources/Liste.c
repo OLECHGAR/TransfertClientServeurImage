@@ -33,8 +33,3 @@ char ** dirtab(const char * s){
 		closedir(dir);	
 		return p;
 }
-
-
-
-
-

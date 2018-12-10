@@ -51,7 +51,6 @@ int MimeTypes()
     while ((c = fgetc(sortie)) != EOF )
 		 putchar(c);
        
-   
     pclose(sortie);
     int res;
      char chaine[100];
@@ -61,7 +60,5 @@ int MimeTypes()
     res=find("../doc/Images/MimeTypes.txt",chaine);
 return res ; 
 }
-
 // Retourne 1 si la chaine est trouve dans le
 // fichier specifie, sinon 0 
-

@@ -4,30 +4,27 @@
 #include <arpa/inet.h>   
 #include <unistd.h>  
 #include <stdlib.h>
+#include <errno.h>
 
-
-   #include <errno.h>
 #include "../headers/SendImage.h"
 #define MAX 500
-  //Send Choix
+//Send Choix
 void sendchoix(int x , int sock)
-{ write(sock,&x,sizeof(x));
-	}
+{ 
+	write(sock,&x,sizeof(x));
+}
 
-
-   void send_image(int socket, char* PATH){
+void send_image(int socket, char* PATH){
 
    FILE *picture;
    int size, read_size, stat, packet_index;
    char send_buffer[10240], read_buffer[256];
    packet_index = 1;
-  //path d'image
+	//path d'image
    picture = fopen(PATH, "r");
    printf("Getting Picture Size\n");   
-
    if(picture == NULL) {
         printf("Error Opening Image File"); } 
-
    fseek(picture, 0, SEEK_END);
    size = ftell(picture);
    fseek(picture, 0, SEEK_SET);
@@ -69,15 +66,12 @@ void sendchoix(int x , int sock)
       //Zero out our send buffer
       bzero(send_buffer, sizeof(send_buffer));
      }
-    }
+}
 
 	
-void afficher_image(char* PATH) {
-
+void afficher_image(char* PATH) 
+{
 	char chaine [50]= "eog ";
 	strcat(chaine,PATH);
 	system(chaine);
 }
-
-
-
